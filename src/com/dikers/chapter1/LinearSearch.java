@@ -2,10 +2,10 @@ package com.dikers.chapter1;
 
 public class LinearSearch {
 
-
-    public int search(int[] data, int target){
+    private LinearSearch(){}
+    public static <E> int search(E[] data, E target){
         for (int i=0; i<data.length; i++){
-            if(data[i] == target){
+            if(data[i].equals(target)){
                 return i;
             }
         }
@@ -14,11 +14,26 @@ public class LinearSearch {
 
     public static void main(String[] args) {
         LinearSearch linearSearch = new LinearSearch();
-        int [] data = {2, 3, 5, 7, 32, 66};
-        int target = 3;
+        Integer [] data = {2, 3, 5, 7, 32, 66};
+        Integer target = 3;
 
         int result = linearSearch.search(data, target);
         System.out.println(result);
+
+
+
+        Student[] students = {
+                new Student("Alice"),
+                new Student("Dikers"),
+                new Student("Bobo"),
+                new Student("Charles")
+        };
+
+        Student bobo = new Student("Bobo");
+
+        int res3 = LinearSearch.search(students, bobo);
+
+        System.out.println(res3);
 
     }
 }
