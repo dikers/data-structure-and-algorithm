@@ -23,13 +23,13 @@ public class LinearSearch {
 
 
         Student[] students = {
-                new Student("Alice"),
-                new Student("Dikers"),
-                new Student("Bobo"),
-                new Student("Charles")
+                new Student("Alice", 100),
+                new Student("Dikers", 20),
+                new Student("Bobo", 30),
+                new Student("Charles", 40)
         };
 
-        Student bobo = new Student("Bobo");
+        Student bobo = new Student("Bobo", 60);
 
         int res3 = LinearSearch.search(students, bobo);
 
