@@ -15,6 +15,13 @@ public class MaxHeap<E extends Comparable<E>> {
         data = new Array<>();
     }
 
+    public MaxHeap(E[] arr){
+        data = new Array<>(arr);
+        for(int i = parent(arr.length-1) ; i>=0; i-- ){
+            siftDown(i);
+        }
+    }
+
     public int size(){
         return data.getSize();
     }
@@ -49,6 +56,39 @@ public class MaxHeap<E extends Comparable<E>> {
             data.swap(k, parent(k));
             k = parent(k);
         }
+
+    }
+    public E findMax(){
+        if(data.getSize()==0){
+            throw new IllegalArgumentException("Can not findMax when heap is empty. ");
+        }
+        return data.get(0);
+    }
+
+    public void siftDown(int k ){
+        while(leftChild(k) < data.getSize()){
+            int j = leftChild(k);
+            //右孩子大
+            if( j+1 < data.getSize() && data.get(j+1).compareTo(data.get(j))>0){
+                j ++;
+            }
+            //data[j是左右孩子里面最大值
+
+            if(data.get(k).compareTo(data.get(j))>=0){
+                break;
+            }
+            data.swap(k,j);
+            k = j;
+        }
+
+    }
+    public E extractMax(){
+        E ret = findMax();
+        data.swap(0, data.getSize() -1);
+        data.removeLast();
+        siftDown(0);
+
+        return ret;
 
     }
 }
