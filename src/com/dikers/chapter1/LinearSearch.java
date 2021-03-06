@@ -17,7 +17,7 @@ public class LinearSearch {
         Integer [] data = {2, 3, 5, 7, 32, 66};
         Integer target = 3;
 
-        int result = linearSearch.search(data, target);
+        int result = search(data, target);
         System.out.println(result);
 
 

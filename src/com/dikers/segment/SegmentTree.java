@@ -21,6 +21,7 @@ public class SegmentTree<E> {
     private void buildSegmentTree(int treeIndex, int l , int r){
         if(l == r){
             tree[treeIndex] = data[l];
+            return;
         }
 
         int leftTreeIndex = leftChild(treeIndex);
@@ -58,11 +59,55 @@ public class SegmentTree<E> {
         res.append('[');
         for (int i=0; i< tree.length; i++){
             if (tree[i] != null){
-
+                res.append(tree[i]);
+            }else{
+                res.append("null");
+            }
+            if(i!=tree.length - 1){
+                res.append(", ");
             }
         }
-        return super.toString();
+        res.append("]");
+        return res.toString();
     }
+
+    public E query(int queryL, int queryR){
+
+        if (queryL < 0 || queryL >= data.length ||
+               queryR < 0 || queryR >= data.length ||
+                queryL > queryR){
+            throw new IllegalArgumentException("index is illegal.");
+        }
+
+        return query(0, 0, data.length-1, queryL, queryR);
+    }
+
+
+
+
+
+    private E query(int treeIndex, int l , int r, int queryL, int queryR){
+
+        if (l == queryL && r == queryR){
+            return tree[treeIndex];
+        }
+
+        int mid = l + (r-l)/2;
+        int leftTreeIndex = leftChild(treeIndex);
+        int rightTreeIndex = rightChild(treeIndex);
+
+        if(queryL>= mid + 1){
+            return query(rightTreeIndex, mid + 1, r, queryL, queryR);
+        }else if(queryR <= mid){
+            return query(leftTreeIndex, l, mid, queryL, queryR);
+        }
+
+        E leftResult = query(leftTreeIndex, l, mid, queryL, mid);
+        E rightResult = query(rightTreeIndex, mid+1, r, mid+1, queryR);
+
+        return this.merger.merge(leftResult, rightResult);
+    }
+
 
     public static void main(String[] args) {
         Integer[] nums = {-2, 0, 3, -5, 2, -1};
@@ -72,5 +117,10 @@ public class SegmentTree<E> {
                 return a + b;
             }
         });
+
+        System.out.println(segmentTree);
+
+        int r = segmentTree.query(0, 2);
+        System.out.println(r);
     }
 }
