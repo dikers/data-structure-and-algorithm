@@ -1,10 +1,10 @@
-from linkedlist.LinkedList2 import LinkedList2
+from linkedlist.LinkedList import LinkedList
 
 
 class LinkedListStack:
 
     def __init__(self):
-        self.linkedList = LinkedList2()
+        self.linkedList = LinkedList()
 
     def get_size(self):
         return self.linkedList.get_size()
@@ -27,9 +27,8 @@ class LinkedListStack:
         return res
 
 
-
 if __name__ == '__main__':
-    print("Trie------------")
+    print("Linked List Stack Test.")
 
     stack = LinkedListStack()
 
@@ -40,4 +39,3 @@ if __name__ == '__main__':
     stack.pop()
 
     print(stack)
-    
