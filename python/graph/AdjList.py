@@ -3,14 +3,13 @@
 """
 
 
-class AdjMatrix:
-
+class AdjList:
 
     def __init__(self, filename: str):
 
         self.V = 0    # 顶点
         self.E = 0    # 边数
-        self.adj = None
+        self.adj = []
         self.filename = filename
         with open(filename) as f:
             for i, line in enumerate(f.readlines()):
@@ -22,14 +21,20 @@ class AdjMatrix:
                     assert self.V >= 0, 'V must be non-negative'
                     self.E = s2
                     assert self.E >= 0, 'E must be non-negative'
-                    self.adj = [[0] * s1 for _ in range(s1)]
+                    self.adj = [0] * s1
+
+                    for j in range(self.V):
+                        self.adj[j] = list()
+                    # print('init adj ', self.adj)
                 else:
                     assert s1 != s2, 'Self loop is Detected! [{}][{}] '.format(s1, s2)
-                    assert self.adj[s1][s2] != 1, 'Parallel Edges are Detected! [{}][{}] '.format(s1, s2)
+                    assert s2 not in self.adj[s1], 'Parallel Edges are Detected! [{}][{}] '.format(s1, s2)
                     self.validate_vertex(s1)
                     self.validate_vertex(s2)
-                    self.adj[s1][s2] = 1
-                    self.adj[s2][s1] = 1
+                    # print('\ns1 [{}] s2 [{}] '.format(s1, s2) )
+                    self.adj[s1].append(s2)
+                    self.adj[s2].append(s1)
+                    # print(self.adj)
 
             # print(self.adj)
     def validate_vertex(self, v: int):
@@ -37,10 +42,10 @@ class AdjMatrix:
 
     def __str__(self):
 
-        print("邻接矩阵-----{}-------Start".format(self.filename))
+        print("邻接表-----{}-------Start".format(self.filename))
         print("节点数: {}     边数: {} ".format(self.V, self.E))
-        for row in self.adj:
-            print(row)
+        for i, row in enumerate(self.adj):
+            print("{} - {} ".format(i, row))
         print("邻接矩阵---------------End")
         return ""
 
@@ -53,26 +58,20 @@ class AdjMatrix:
     def has_edge(self, v:int, w: int) -> bool:
         self.validate_vertex(v)
         self.validate_vertex(w)
-        return self.adj[v][w] == 1
+        return w in self.adj[v]
 
     def get_adj(self, v: int):
-
-        res = []
         self.validate_vertex(v)
-        for i in range(self.V):
-            if self.adj[v][i] == 1:
-                res.append(i)
-        return res
+        return self.adj[v]
 
     def degree(self, v) -> int:
         self.validate_vertex(v)
         return len(self.get_adj(v))
-
-
+    
 
 if __name__ == '__main__':
 
-    adjMatrix = AdjMatrix('./data/data.txt')
-    # print(adjMatrix)
-    degree = adjMatrix.degree(5)
+    adjList = AdjList('./data/data.txt')
+    print(adjList)
+    degree = adjList.degree(5)
     print(degree)
