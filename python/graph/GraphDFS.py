@@ -9,8 +9,11 @@ class GraphDFS:
         self._post = []
         self.G = G
         self.visited = [False] * G.get_v()
-        for i in range(G.get_v()):
-            self.dfs(i)
+        self.cccount = 0    #联通分量
+        for v in range(G.get_v()):
+            if not self.visited[v]:
+                self.dfs(v)
+                self.cccount += 1
 
     def dfs(self, v: int):
         if self.visited[v]:
@@ -28,6 +31,9 @@ class GraphDFS:
 
     def post(self):
         return self._post
+
+
+
 
 if __name__ == '__main__':
 
