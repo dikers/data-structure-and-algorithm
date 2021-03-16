@@ -5,7 +5,7 @@ from graph.Graph import Graph
 """
 class CC:
     def __init__(self, G: Graph):
-        self._order = []
+        # self._order = []
         self.G = G
         self.visited = [-1] * G.get_v()
         self.cccount = 0    #联通分量

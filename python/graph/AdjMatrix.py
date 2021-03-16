@@ -72,7 +72,7 @@ class AdjMatrix:
 
 if __name__ == '__main__':
 
-    adjMatrix = AdjMatrix('./data/data.txt')
+    adjMatrix = AdjMatrix('./data/g3.txt')
     # print(adjMatrix)
     degree = adjMatrix.degree(5)
     print(degree)

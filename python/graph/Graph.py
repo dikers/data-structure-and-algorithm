@@ -46,7 +46,7 @@ class Graph:
         print("节点数: {}     边数: {} ".format(self.V, self.E))
         for i, row in enumerate(self.adj):
             print("{} - {} ".format(i, row))
-        print("邻接矩阵---------------End")
+        print("邻接表---------------End")
         return ""
 
     def get_v(self) -> int:
