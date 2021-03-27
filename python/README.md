@@ -37,17 +37,119 @@
 |  难度   | 题目 |   完成情况 |    要点    |
 |  ----  | ----  | ----     |    ------    |
 | 中等  | [406. 根据身高重建队列](https://leetcode-cn.com/problems/queue-reconstruction-by-height/) |     已完成  |  二维数组排序 |
-| 中等  | [406. 根据身高重建队列](https://leetcode-cn.com/problems/queue-reconstruction-by-height/) |     已完成  |  二维数组排序 |
+| 中等  | [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/) |     已完成  | 记录当前能到达的最远位置 [视频讲解](https://www.bilibili.com/video/BV1Sk4y1C7cD?from=search&seid=12972546831710779530) |
 
            
 
 ----------------------------
-# 排序
-
-[215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
+# 动态规划
 
 
-[148. 排序链表](https://leetcode-cn.com/problems/sort-list/)
+|  难度   | 题目 |   完成情况 |    要点    |
+|  ----  | ----  | ----     |    ------    |
+| 中等  | [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) | 已完成      | if nums[i] > nums[j]: dp[i] = max(dp[i], dp[j]+1)  |
+| 中等  | [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/submissions/) | 已完成      | dp[i] = max(nums[i], nums[i] + dp[i-1])  |
+| 中等  | [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/) | 已完成      |   |
+| 中等  | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 已完成      |   |
+| 简单  | [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) |     已完成  |   |
+| 中等  | [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/) |     已完成  |   |
+| 中等  | [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/) |     已完成  |   |
+| 中等  | [63. 不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/) |     已完成  |   |
+| 中等  | [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/) |     已完成  |   |
+| 中等  | [343. 整数拆分](https://leetcode-cn.com/problems/integer-break/) |     已完成  |   |
+| 中等  | [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) |       |   |
+| 中等  | [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/submissions/) |     已完成  |   |
+| 中等  | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) |     |   |
+| 中等  | [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) |     |   |
+| 简单  | [674. 最长连续递增序列](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/) |     已完成  |   |
+| 困难  | [115. 不同的子序列](https://leetcode-cn.com/problems/distinct-subsequences/) |        |   |
+| 中等  | [406. 根据身高重建队列](https://leetcode-cn.com/problems/queue-reconstruction-by-height/) |     已完成  |   |
+| 中等  | [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/) |       |   |
+| 中等  | [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/) |   已经完成    | dp[i] = min(dp[i], 1+dp[i-coin])  |
+| 中等  | [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/) |       |   |
+| 中等  | [474. 一和零](https://leetcode-cn.com/problems/ones-and-zeroes/) |       |   |
+| 中等  | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) |       |   |
+| 中等  | [376. 摆动序列](https://leetcode-cn.com/problems/wiggle-subsequence/) | 已完成      |   |
+| 困难  | [354. 俄罗斯套娃信封问题](https://leetcode-cn.com/problems/russian-doll-envelopes/) | 已完成      | 先排序，然后 最长递增子序列  |
+
+
+
+
+----------------------------
+# 树
+
+|  难度   | 题目 |   完成情况 |    要点    |
+|  ----  | ----  | ----     |    ------    |
+| 中等  | [894. 所有可能的满二叉树](https://leetcode-cn.com/problems/all-possible-full-binary-trees/) |    |  [视频讲解](https://www.bilibili.com/video/BV1rW411Z7Sb)     |
+| 困难  | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/submissions/) |    |  [视频讲解](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/solution/er-cha-shu-zhong-de-zui-da-lu-jing-he-by-leetcode-/)     |
+| 中等  | [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) |    |       |
+
+
+    
+ 
+
+144
+94
+145
+102
+107
+103
+314
+
+
+297
+428
+449
+1008
+
+106
+889
+426
+    
+    
+----------------------------
+# 回溯算法
+
+
+|  难度   | 题目 |   完成情况 |    要点    |
+|  ----  | ----  | ----     |    ------    |
+| 简单  | [17. 电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/) |     已完成  |   |
+| 简单  | [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/) |     已完成  |   |
+| 中等  | [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/) |     已完成  |  [视频讲解](https://leetcode-cn.com/problems/combination-sum/solution/gua-he-xin-shou-peng-you-de-shi-pin-jiang-jie-ru-h/) |
+| 中等  | [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/) |     已完成  |   |
+| 中等  | [216. 组合总和 III](https://leetcode-cn.com/problems/combination-sum-iii/) |     已完成  |   |
+| 中等  | [46. 全排列](https://leetcode-cn.com/problems/permutations/) |     已完成  |   |
+| 中等  | [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/) |     已完成  | 先排序   |
+| 中等  | [77. 组合](https://leetcode-cn.com/problems/combinations/) |     已完成  |   注意结束条件   |
+| 中等  | [78. 子集](https://leetcode-cn.com/problems/subsets/) |      |      |
+| 中等  | [79. 单词搜索](https://leetcode-cn.com/problems/word-search/) |     已完成 |      |
+| 中等  | [89. 格雷编码](https://leetcode-cn.com/problems/gray-code/) |       |   |
+| 中等  | [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/) |      |      |
+| 中等  | [93. 复原 IP 地址](https://leetcode-cn.com/problems/restore-ip-addresses/) |       |   |
+| 中等  | [406. 根据身高重建队列](https://leetcode-cn.com/problems/queue-reconstruction-by-height/) |     已完成  |   |
+| 中等  | [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/) |       |   |
+| 简单  | [401. 二进制手表](https://leetcode-cn.com/problems/binary-watch/) |       |   |
+| 难   | [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching/) |    |   |
+| 难   | [51. N 皇后](https://leetcode-cn.com/problems/n-queens/) |    |  [视频讲解](https://www.bilibili.com/video/BV1ZK411K7A8/?spm_id_from=autoNext)     |
+
+           
+ 
+
+        
+
+----------------------------
+# 排序      
+
+|  难度   | 题目 |   完成情况 |    要点    |
+|  ----  | ----  | ----     |    ------    |
+| 简单  | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) |     已完成  |   |
+| 简单  | [148. 排序链表](https://leetcode-cn.com/problems/sort-list/) |     已完成  |   |
+| 简单  | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) |     已完成  |   |
+
+
+
+
+
 
 []()
 
@@ -110,6 +212,11 @@ aaa
 ----------------------------
 # 二分搜索
 
+
+|  难度   | 题目 |   完成情况 |    要点    |
+|  ----  | ----  | ----     |    ------    |
+| 简单  | [704. 二分查找](https://leetcode-cn.com/problems/binary-search/) |     已完成  |   |
+
 4
 278
 410
@@ -139,27 +246,6 @@ aaa
 LRU
 
 
-----------------------------
-# 树
-
-144
-94
-145
-102
-107
-103
-314
-
-
-297
-428
-449
-1008
-
-105
-106
-889
-426
 
 
 
@@ -196,36 +282,3 @@ LRU
 1425
 1438
 1696
-
-----------------------------
-# 回溯算法
-
-22
-46
-37
-17
-10
-93
-51
-131
-78
-77
-357
-39
-47
-89
-401
-216
-79
-526
-60
-90
-40
-
-
-
-
-
-
-----------------------------
-# 排序
