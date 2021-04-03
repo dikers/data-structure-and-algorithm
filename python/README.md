@@ -49,7 +49,6 @@
 |  ----  | ----  | ----     |    ------    |
 | 中等  | [300. 最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/) | 已完成      | if nums[i] > nums[j]: dp[i] = max(dp[i], dp[j]+1)  |
 | 中等  | [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/submissions/) | 已完成      | dp[i] = max(nums[i], nums[i] + dp[i-1])  |
-| 中等  | [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/) | 已完成      |   |
 | 中等  | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) | 已完成      |   |
 | 简单  | [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/) |     已完成  |   |
 | 中等  | [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/) |     已完成  |   |
@@ -59,7 +58,9 @@
 | 中等  | [343. 整数拆分](https://leetcode-cn.com/problems/integer-break/) |     已完成  |   |
 | 中等  | [91. 解码方法](https://leetcode-cn.com/problems/decode-ways/) |       |   |
 | 中等  | [279. 完全平方数](https://leetcode-cn.com/problems/perfect-squares/submissions/) |     已完成  |   |
-| 中等  | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) |     |   |
+| 中等  | [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/) |     | dp[i]= max(dp[i-1], dp[i-2] + nums[i])  |
+| 中等  | [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/) |     |   |
+| 中等  | [337. 打家劫舍 III](https://leetcode-cn.com/problems/house-robber-iii/) |     |   |
 | 中等  | [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) |     |   |
 | 简单  | [674. 最长连续递增序列](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/) |     已完成  |   |
 | 困难  | [115. 不同的子序列](https://leetcode-cn.com/problems/distinct-subsequences/) |        |   |
@@ -71,6 +72,15 @@
 | 中等  | [139. 单词拆分](https://leetcode-cn.com/problems/word-break/) |       |   |
 | 中等  | [376. 摆动序列](https://leetcode-cn.com/problems/wiggle-subsequence/) | 已完成      |   |
 | 困难  | [354. 俄罗斯套娃信封问题](https://leetcode-cn.com/problems/russian-doll-envelopes/) | 已完成      | 先排序，然后 最长递增子序列  |
+
+
+### 双序列问题
+|  难度   | 题目 |     |    要点    |
+|  ----  | ----  | ----     |    ------    |
+| 中等  | [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/) | 已完成      |   |
+| 困难  | [97. 交错字符串](https://leetcode-cn.com/problems/interleaving-string/) |        |   |
+| 困难  | [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance/) |        |   |
+| 困难  | [115. 不同的子序列](https://leetcode-cn.com/problems/distinct-subsequences/) |        |   |
 
 
 
@@ -262,15 +272,17 @@ LRU
 ----------------------------
 # 单调栈 
 
-496
-503
-1019
-739
-316
-1081
-402
-42
-84
+|  难度   | 题目 |   完成情况 |    要点    |
+|  ----  | ----  | ----     |    ------    |
+| 简单  | [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i/) |     已完成  |   |
+| 中等  | [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/) |      |   nums[i %n] |
+| 中等  | [1019. 链表中的下一个更大节点](https://leetcode-cn.com/problems/next-greater-node-in-linked-list/) |      |   |
+| 中等  | [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/) |      | 保存index  |
+| 中等  | [316. 去除重复字母](https://leetcode-cn.com/problems/remove-duplicate-letters/) |      |    |
+| 中等  | [1081. 不同字符的最小子序列](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/) |      |  same 316  |
+| 中等  | [402. 移掉K位数字](https://leetcode-cn.com/problems/remove-k-digits/) |      |   |
+| 困难  | [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water/) |      |   |
+| 中等  | [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/) |      |    |
 
 
 
