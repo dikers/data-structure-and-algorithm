@@ -40,6 +40,14 @@ class Graph:
     def validate_vertex(self, v: int):
         assert 0 <= v < self.V, 'vertex {} is invalid'.format(v)
 
+
+    def remove_edge(self, v: int, w: int):
+        self.validate_vertex(v)
+        self.validate_vertex(w)
+
+        self.adj[v].remove(w)
+        self.adj[w].remove(v)
+
     def __str__(self):
 
         print("邻接表-----{}-------Start".format(self.filename))
