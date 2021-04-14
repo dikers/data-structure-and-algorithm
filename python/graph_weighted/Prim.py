@@ -32,11 +32,8 @@ class Prim:
             visited[minEdge.get_v()] = True
             visited[minEdge.get_w()] = True
 
-
-                    
-
-
     def result(self):
+        # self.mst.sort()
         return self.mst
 
 if __name__ == '__main__':
