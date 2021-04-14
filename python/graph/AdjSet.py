@@ -71,7 +71,7 @@ class AdjSet:
 
 if __name__ == '__main__':
 
-    adjList = AdjSet('./data/data.txt')
+    adjList = AdjSet('./data/g.txt')
     print(adjList)
     degree = adjList.degree(5)
     print(degree)

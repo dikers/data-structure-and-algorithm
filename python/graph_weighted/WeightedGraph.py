@@ -3,7 +3,7 @@
 """
 
 
-class Graph:
+class WeightedGraph:
 
     def __init__(self, filename: str):
 
@@ -13,10 +13,11 @@ class Graph:
         self.filename = filename
         with open(filename) as f:
             for i, line in enumerate(f.readlines()):
-                s1, s2 = line.split(",")
-                s1 = int(s1)
-                s2 = int(s2)
+
                 if i == 0:
+                    s1, s2 = line.split(",")
+                    s1 = int(s1)
+                    s2 = int(s2)
                     self.V = s1
                     assert self.V >= 0, 'V must be non-negative'
                     self.E = s2
@@ -24,29 +25,32 @@ class Graph:
                     self.adj = [0] * s1
 
                     for j in range(self.V):
-                        self.adj[j] = set()
+                        self.adj[j] = dict()
                     # print('init adj ', self.adj)
                 else:
+                    s1, s2, s3 = line.split(",")
+                    s1 = int(s1)
+                    s2 = int(s2)
+                    weight = int(s3)
                     assert s1 != s2, 'Self loop is Detected! [{}][{}] '.format(s1, s2)
-                    assert s2 not in self.adj[s1], 'Parallel Edges are Detected! [{}][{}] '.format(s1, s2)
+                    assert (s2,s3) not in self.adj[s1], 'Parallel Edges are Detected! [{}][{}] '.format(s1, s2)
                     self.validate_vertex(s1)
                     self.validate_vertex(s2)
-                    # print('\ns1 [{}] s2 [{}] '.format(s1, s2) )
-                    self.adj[s1].add(s2)
-                    self.adj[s2].add(s1)
+                    # print('\ns1 [{}] s2 [{}] weight: [{}]'.format(s1, s2, s3) )
+
+                    self.adj[s1][s2] = weight
+                    self.adj[s2][s1] = weight
                     # print(self.adj)
 
             # print(self.adj)
     def validate_vertex(self, v: int):
         assert 0 <= v < self.V, 'vertex {} is invalid'.format(v)
 
-
     def remove_edge(self, v: int, w: int):
         self.validate_vertex(v)
         self.validate_vertex(w)
-
-        self.adj[v].remove(w)
-        self.adj[w].remove(v)
+        self.adj[v].pop(w)
+        self.adj[w].pop(v)
 
     def __str__(self):
 
@@ -70,7 +74,17 @@ class Graph:
 
     def get_adj(self, v: int):
         self.validate_vertex(v)
-        return self.adj[v]
+        return self.adj[v].keys()
+
+    def get_weight(self, v: int, w: int):
+        self.validate_vertex(v)
+        self.validate_vertex(w)
+
+        if self.has_edge(v, w):
+            return self.adj[v][w]
+        else:
+            return -1
+
 
     def degree(self, v) -> int:
         self.validate_vertex(v)
@@ -79,7 +93,21 @@ class Graph:
 
 if __name__ == '__main__':
 
-    graph = Graph('./data/g.txt')
+    graph = WeightedGraph('./data/g.txt')
     print(graph)
-    degree = graph.degree(5)
-    print(degree)
+
+    print('get_adj ', graph.get_adj(0))
+
+    print(graph.degree(0))
+    #
+    #
+    print("0 - 1   ", graph.get_weight(0, 1))
+    print("0 - 2   ", graph.get_weight(0, 2))
+    #
+    #
+    print("0 - 1   ", graph.has_edge(0, 1))
+    print("0 - 2   ", graph.has_edge(0, 2))
+    #
+    # graph.remove_edge(0, 1)
+    # print(graph)
+   
