@@ -49,6 +49,8 @@ class WeightedGraph:
     def remove_edge(self, v: int, w: int):
         self.validate_vertex(v)
         self.validate_vertex(w)
+        if w in self.adj[v]:
+            self.E -= 1
         self.adj[v].pop(w)
         self.adj[w].pop(v)
 

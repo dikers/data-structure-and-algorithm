@@ -1,22 +1,24 @@
 """
-邻接矩阵
+有向无权图
 """
 
 
 class Graph:
 
-    def __init__(self, filename: str):
+    def __init__(self, filename: str, directed=False):
 
         self.V = 0    # 顶点
         self.E = 0    # 边数
         self.adj = []
         self.filename = filename
+        self.directed = directed
         with open(filename) as f:
             for i, line in enumerate(f.readlines()):
-                s1, s2 = line.split(",")
-                s1 = int(s1)
-                s2 = int(s2)
+
                 if i == 0:
+                    s1, s2 = line.split(",")
+                    s1 = int(s1)
+                    s2 = int(s2)
                     self.V = s1
                     assert self.V >= 0, 'V must be non-negative'
                     self.E = s2
@@ -27,13 +29,18 @@ class Graph:
                         self.adj[j] = set()
                     # print('init adj ', self.adj)
                 else:
+                    s1, s2 = line.split(",")
+                    s1 = int(s1)
+                    s2 = int(s2)
                     assert s1 != s2, 'Self loop is Detected! [{}][{}] '.format(s1, s2)
                     assert s2 not in self.adj[s1], 'Parallel Edges are Detected! [{}][{}] '.format(s1, s2)
                     self.validate_vertex(s1)
                     self.validate_vertex(s2)
                     # print('\ns1 [{}] s2 [{}] '.format(s1, s2) )
                     self.adj[s1].add(s2)
-                    self.adj[s2].add(s1)
+                    if not self.directed:
+                        self.adj[s2].add(s1)
+
                     # print(self.adj)
 
             # print(self.adj)
@@ -44,16 +51,18 @@ class Graph:
     def remove_edge(self, v: int, w: int):
         self.validate_vertex(v)
         self.validate_vertex(w)
+
         if w in self.adj[v]:
             self.E -= 1
 
         self.adj[v].remove(w)
-        self.adj[w].remove(v)
+        if self.directed:
+            self.adj[w].remove(v)
 
     def __str__(self):
 
         print("邻接表-----{}-------Start".format(self.filename))
-        print("节点数: {}     边数: {} ".format(self.V, self.E))
+        print("节点数: {}     边数: {}   方向： {} ".format(self.V, self.E, self.directed))
         for i, row in enumerate(self.adj):
             print("{} - {} ".format(i, row))
         print("邻接表---------------End")
@@ -73,15 +82,16 @@ class Graph:
     def get_adj(self, v: int):
         self.validate_vertex(v)
         return self.adj[v]
-
-    def degree(self, v) -> int:
-        self.validate_vertex(v)
-        return len(self.get_adj(v))
+    #
+    # def degree(self, v) -> int:
+    #     self.validate_vertex(v)
+    #     return len(self.get_adj(v))
 
 
 if __name__ == '__main__':
 
-    graph = Graph('./data/g.txt')
+    graph = Graph('./data/ug.txt', False)
     print(graph)
-    degree = graph.degree(5)
-    print(degree)
+
+    graph = Graph('./data/ug.txt', True)
+    print(graph)
