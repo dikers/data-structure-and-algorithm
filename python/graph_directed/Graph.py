@@ -12,6 +12,7 @@ class Graph:
         self.adj = []
         self.filename = filename
         self.directed = directed
+
         with open(filename) as f:
             for i, line in enumerate(f.readlines()):
 
@@ -24,6 +25,8 @@ class Graph:
                     self.E = s2
                     assert self.E >= 0, 'E must be non-negative'
                     self.adj = [0] * s1
+                    self.indegrees = [0] * self.V
+                    self.outdegrees = [0] * self.V
 
                     for j in range(self.V):
                         self.adj[j] = set()
@@ -38,12 +41,17 @@ class Graph:
                     self.validate_vertex(s2)
                     # print('\ns1 [{}] s2 [{}] '.format(s1, s2) )
                     self.adj[s1].add(s2)
+
+                    if self.directed:
+                        self.outdegrees[s1] += 1
+                        self.indegrees[s2] += 1
+
                     if not self.directed:
                         self.adj[s2].add(s1)
 
                     # print(self.adj)
 
-            # print(self.adj)
+        # print(self.adj)
     def validate_vertex(self, v: int):
         assert 0 <= v < self.V, 'vertex {} is invalid'.format(v)
 
@@ -54,6 +62,9 @@ class Graph:
 
         if w in self.adj[v]:
             self.E -= 1
+            if self.directed:
+                self.outdegrees[v] -= 1
+                self.indegrees[w] -= 1
 
         self.adj[v].remove(w)
         if self.directed:
@@ -82,16 +93,36 @@ class Graph:
     def get_adj(self, v: int):
         self.validate_vertex(v)
         return self.adj[v]
-    #
-    # def degree(self, v) -> int:
-    #     self.validate_vertex(v)
-    #     return len(self.get_adj(v))
+
+    def degree(self, v) -> int:
+        assert not self.directed, "Degree only works in undirected graph."
+
+        self.validate_vertex(v)
+        return len(self.get_adj(v))
+
+    def indegree(self, v: int):
+        assert self.directed, "InDegree only works in directed graph."
+        self.validate_vertex(v)
+        return self.indegrees[v]
+
+    def outdegree(self, v: int):
+        assert self.directed, "OutDegree only works in directed graph."
+        self.validate_vertex(v)
+        return self.outdegrees[v]
+
+
+
+
+
 
 
 if __name__ == '__main__':
 
-    graph = Graph('./data/ug.txt', False)
-    print(graph)
-
     graph = Graph('./data/ug.txt', True)
     print(graph)
+
+    print("indegree 0 : ", graph.indegree(0))
+
+    graph = Graph('./data/ug2.txt', True)
+    print(graph)
+    print("indegree 0: ", graph.outdegree(0))
