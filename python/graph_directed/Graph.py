@@ -1,6 +1,7 @@
 """
 有向无权图
 """
+import copy
 
 
 class Graph:
@@ -54,6 +55,36 @@ class Graph:
         # print(self.adj)
     def validate_vertex(self, v: int):
         assert 0 <= v < self.V, 'vertex {} is invalid'.format(v)
+
+    def reverse_graph(self, graph):
+        rAdj = [0] * self.get_v()
+
+        for v in range(self.get_v()):
+            rAdj[v] = set()
+            
+        for v in range(self.get_v()):
+            for w in self.adj[v]:
+                rAdj[w].add(v)
+
+        new_graph = copy.deepcopy(graph)
+        self.adj = rAdj
+        # self.directed = directed
+        self.V = len(rAdj)    # 顶点
+        self.E = 0          # 边数
+
+        self.indegrees = [0] * self.V
+        self.outdegrees = [0] * self.V
+
+        for v in range(self.V):
+            for w in self.adj[v]:
+                self.outdegrees[v] += 1
+                self.indegrees[w] += 1
+                self.E += 1
+
+        if not self.directed:
+            self.E /= 2
+        return new_graph
+        
 
 
     def remove_edge(self, v: int, w: int):
@@ -120,9 +151,12 @@ if __name__ == '__main__':
 
     graph = Graph('./data/ug.txt', True)
     print(graph)
-
     print("indegree 0 : ", graph.indegree(0))
 
     graph = Graph('./data/ug2.txt', True)
     print(graph)
     print("indegree 0: ", graph.outdegree(0))
+
+    graph_reverse = graph.reverse_graph(graph)
+    print(graph_reverse)
+    print(graph)
