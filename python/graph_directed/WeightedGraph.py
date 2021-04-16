@@ -57,7 +57,7 @@ class DirectedGraph:
             self.E -= 1
 
         self.adj[v].pop(w)
-        if self.directed:
+        if not self.directed:
             self.adj[w].pop(v)
 
     def __str__(self):

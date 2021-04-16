@@ -2,20 +2,21 @@ from graph_directed.Graph import Graph
 from graph_directed.CC import CC
 import copy
 
-class EulerLoop:
+class DirectedEulerLoop:
     def __init__(self, G: Graph):
         self.G = G
-        assert not G.directed, "EulerLoop works in undirected graph"
+        assert G.directed, "EulerLoop works in undirected graph"
 
         self._result = []
 
     def has_euler_loop(self) -> bool:
-        cc = CC(self.G)
-        print("联通分量 ： ", cc.get_cc())
-        if cc.get_cc() > 1:
-            return False
-        for i in range(self.G.get_v()):
-            if self.G.degree(i) % 2 == 1:
+        # cc = CC(self.G)
+        # print("联通分量 ： ", cc.get_cc())
+        # if cc.get_cc() > 1:
+        #     return False
+        
+        for v in range(self.G.get_v()):
+            if self.G.indegree(v) != self.G.outdegree(v):
                 return False
         return True
 
@@ -31,7 +32,7 @@ class EulerLoop:
 
         stack.append(curv)
         while len(stack) > 0:
-            if g.degree(curv) != 0:
+            if g.outdegree(curv) != 0:
                 stack.append(curv)
                 # print('**** ', list(g.adj[curv])[0])
                 w = list(g.adj[curv])[0]
@@ -41,14 +42,21 @@ class EulerLoop:
                 res.append(curv)
                 curv = stack.pop()
 
+        res.reverse()
         return res
-        
- 
+
+
 if __name__ == '__main__':
 
-    graph = Graph('./data/ug2.txt')
-    # print(graph)
-    loop = EulerLoop(graph)
-    print(loop.result())
+    graph = Graph('./data/ug2.txt', True)
+    print(graph)
+    loop = DirectedEulerLoop(graph)
+    print('有向图的欧拉回路', loop.result())
+
+
+    graph = Graph('./data/ug3.txt', True)
+    print(graph)
+    loop = DirectedEulerLoop(graph)
+    print('有向图的欧拉回路', loop.result())
 
 

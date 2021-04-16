@@ -67,7 +67,7 @@ class Graph:
                 self.indegrees[w] -= 1
 
         self.adj[v].remove(w)
-        if self.directed:
+        if not self.directed:
             self.adj[w].remove(v)
 
     def __str__(self):
