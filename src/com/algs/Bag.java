@@ -1,5 +1,8 @@
 package com.algs;
 
+import com.algs.std.StdIn;
+import com.algs.std.StdOut;
+
 import java.util.Iterator;
 
 public class Bag<Item> implements Iterable<Item> {
@@ -28,6 +31,7 @@ public class Bag<Item> implements Iterable<Item> {
     }
 
     private Node first;
+    private int N = 0;
     private class Node{
         Item item;
         Node next;
@@ -38,8 +42,14 @@ public class Bag<Item> implements Iterable<Item> {
         first = new Node();
         first.item = item;
         first.next = oldFirst;
+        N ++;
 
     }
+
+    public int size(){
+        return N;
+    }
+
 
 
     @Override
@@ -58,11 +68,31 @@ public class Bag<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
-        System.out.println("hello");
-        Bag<Integer> numbers = new Bag<>();
-        numbers.add(1);
-        numbers.add(2);
-        System.out.println(numbers);
+
+        Bag<Double> numbers = new Bag<Double>();
+
+        while (!StdIn.isEmpty()){
+            numbers.add(StdIn.readDouble());
+        }
+
+        int N = numbers.size();
+        double sum  = 0.0;
+
+        for(double x: numbers){
+            sum += x;
+        }
+
+        double mean = sum/N;
+
+        sum = 0.0;
+
+        for(double x: numbers){
+            sum += (x-mean) * (x-mean);
+        }
+        double std = Math.sqrt(sum/(N-1));
+
+        StdOut.printf("Mean: %.2f\n", mean);
+        StdOut.printf("Std dev: %.2f\n", std);
 
     }
 }
