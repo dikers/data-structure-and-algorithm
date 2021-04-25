@@ -1,4 +1,4 @@
-package com.dikers.chapter2;
+package com.dikers.sort;
 
 
 public class Array<E> {

@@ -1,7 +1,5 @@
 package com.dikers.algorithms;
 
-import com.dikers.chapter2.Array;
-
 import java.util.Arrays;
 
 public class Solution3 {

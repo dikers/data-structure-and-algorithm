@@ -1,4 +1,4 @@
-package com.dikers.chapter2;
+package com.dikers.sort;
 
 import com.dikers.utils.ArrayGenerator;
 import com.dikers.utils.SortingHelper;

@@ -1,6 +1,7 @@
 package com.dikers.utils;
 
-import com.dikers.chapter2.SelectionSort;
+import com.dikers.sort.InsertionSort;
+import com.dikers.sort.SelectionSort;
 import com.dikers.chapter9.HeapSort;
 
 public class SortingHelper {
@@ -22,6 +23,8 @@ public class SortingHelper {
         long startTime = System.nanoTime();
         if (sortname.equals("SelectionSort")){
             SelectionSort.sort(arr);
+        }else if(sortname.equals("InsertionSort")){
+            InsertionSort.sort(arr);
         }else if(sortname.equals("MergeSort")){
             HeapSort.sort(arr);
         }else if(sortname.equals("HeapSort")){

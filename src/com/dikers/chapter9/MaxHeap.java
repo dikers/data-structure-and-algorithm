@@ -1,6 +1,6 @@
 package com.dikers.chapter9;
 
-import com.dikers.chapter2.Array;
+import com.dikers.sort.Array;
 
 public class MaxHeap<E extends Comparable<E>> {
     private Array<E> data;

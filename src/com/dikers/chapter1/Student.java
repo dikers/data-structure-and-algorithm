@@ -1,6 +1,6 @@
 package com.dikers.chapter1;
 
-import com.dikers.chapter2.Array;
+import com.dikers.sort.Array;
 
 import java.util.Objects;
 

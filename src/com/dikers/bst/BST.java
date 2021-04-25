@@ -1,7 +1,5 @@
 package com.dikers.bst;
 
-import com.dikers.chapter2.Array;
-
 import java.util.*;
 
 /**

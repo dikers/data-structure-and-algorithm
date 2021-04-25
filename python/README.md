@@ -94,6 +94,9 @@
 | 中等  | [145. 二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/) |    |  递归和栈两种实现 |
 | 中等  | [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/) |    |  递归和栈两种实现 |
 | 中等  | [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/) |    |  队列实现 |
+| 中等  | [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum) |    |   后续遍历、递归 |
+| 中等  | [105. 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal) |    |   递归 |
+
 
 
 | 中等  | [894. 所有可能的满二叉树](https://leetcode-cn.com/problems/all-possible-full-binary-trees/) |    |  [视频讲解](https://www.bilibili.com/video/BV1rW411Z7Sb)     |
@@ -164,38 +167,12 @@
 | 简单  | [215. 数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/) |     已完成  |   |
 
 
-
-
-
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-[]()
-
-
-
 ----------------------------
 # 栈 队列
+|  难度   | 题目 |   完成情况 |    要点    |
+|  ----  | ----  | ----     |    ------    |
+| 简单  | [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/) |     已完成  |  栈 |
 
-aaa
 
 
 ----------------------------
