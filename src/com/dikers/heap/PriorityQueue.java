@@ -1,4 +1,4 @@
-package com.dikers.chapter9;
+package com.dikers.heap;
 
 public class PriorityQueue<E extends Comparable<E>> implements Queue<E> {
     private MaxHeap<E> maxHeap;

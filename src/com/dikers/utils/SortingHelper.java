@@ -2,7 +2,7 @@ package com.dikers.utils;
 
 import com.dikers.sort.InsertionSort;
 import com.dikers.sort.SelectionSort;
-import com.dikers.chapter9.HeapSort;
+import com.dikers.heap.HeapSort;
 
 public class SortingHelper {
     private SortingHelper(){}

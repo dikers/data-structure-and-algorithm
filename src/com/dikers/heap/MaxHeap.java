@@ -1,4 +1,4 @@
-package com.dikers.chapter9;
+package com.dikers.heap;
 
 import com.dikers.sort.Array;
 

@@ -172,6 +172,11 @@
 |  难度   | 题目 |   完成情况 |    要点    |
 |  ----  | ----  | ----     |    ------    |
 | 简单  | [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/) |     已完成  |  栈 |
+| 简单  | [155. 最小栈](https://leetcode-cn.com/problems/min-stack/) |     已完成  |  用两个栈来实现 |
+
+1381
+1441
+622
 
 
 

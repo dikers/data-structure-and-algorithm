@@ -1,4 +1,4 @@
-package com.dikers.chapter1;
+package com.dikers.linear;
 
 import com.dikers.sort.Array;
 
